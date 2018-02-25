@@ -1,0 +1,18 @@
+
+[ERROR] Failed to execute goal on project scala-js-vue: Could not resolve dependencies for project 
+com.carrotgarden.sjs:scala-js-vue:jar:1.0.1.local: 
+Failed to collect dependencies for com.carrotgarden.sjs:scala-js-vue:jar:1.0.1.local: 
+Could not resolve version conflict among [
+
+org.webjars.npm:bootstrap-vue:jar:1.5.1 -> 
+org.webjars.npm:opencollective:jar:[1.0.3,2) -> 
+org.webjars.npm:babel-polyfill:jar:6.23.0 -> 
+org.webjars.npm:babel-runtime:jar:[6.22.0,7) -> 
+org.webjars.npm:regenerator-runtime:jar:[0.11.0,0.12), 
+
+org.webjars.npm:bootstrap-vue:jar:1.5.1 -> 
+org.webjars.npm:opencollective:jar:[1.0.3,2) -> 
+org.webjars.npm:babel-polyfill:jar:6.23.0 -> 
+org.webjars.npm:regenerator-runtime:jar:[0.10.0,0.11)
+
+] -> [Help 1]

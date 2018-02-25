@@ -1,0 +1,28 @@
+language: java
+dist: trusty
+jdk:
+- oraclejdk8
+cache:
+  directories:
+  - "$HOME/.m2"
+  - "./test-repo"
+  - "./test-tool"
+branches:
+  only:
+  - master
+  - /develop/
+env:
+  global:
+  - RELEASE_STAMP=$(date -u +"%Y%m%d%H%M%S")
+  - secure: NyQvZyOkUH7d5lm6P7hMigCGSCPuqF0RzpoQJyVeqcshHWX5iSVlvt7DDNlluX8D6kAv2zV7ygTh1XUooY/nKbbzr9sm+w4JVKBXh2qI+lAk548OeeCOlpWpUSbpEOQPSl0o9NNY/nQjyfOnRV6cYfmqYoZDUG5h44qczFDhNtfpfySOmehr5FHxxdO5/q3h1TGu523gXSGF+lymv/XUMq2vECBmTau1Cn8o+hpXt/DvKiSTnoyCFyIHH0/5NUC09IXIarnvlE3hzQfBfpjQwqhhN4Xg/YarLzuCqWk8TNqWsVapInPHaGJv3i03LX80AobAyurwzvjjsfYMJWjL78WVPjkYDQIpzf1O+g4+n8KvPd4R5Zpg/8hwnpTtU4vM84rasL/aPxmJz8/KIAgTxDwkMlRVGvzgHh0dThMAZ4FPiq7qUQJ9r0wFVg3iVEws/zPpa66YgWNsBE5nTBzWNjRyZkD2YSUg+e42jQV3AXJq7zGadtRpZrzG8o/dMgtOkCtCiwUC3j+RXY+72SkEa9dfO2w9Pc9vbibjs1f7apkxbsTob3Gzihmy90joxSGMct7jyBi8GtBIrS6BFPxLLYhv1mbGilyxol2G3TOLusQhNxHSAXCQ6JaKfL8s5h/o3Wn1ClDdRK/nHQiZmfZ5zbB7TIz7XgYPg47L5HLt8zQ=
+  - secure: wTUbm6pvu90debNuMBbPBp4gknJ30VzeZ1pG5o4l3iHxnLavEX4rT/mCTr/Itz0eUAGo5T7ZiTfZGqZAw+WKTEVO2lGCZUc2YTnPjfVL2aULPeBzRGC4QRPfJdFnK+n3IvTF41FQ2CrpJAC4Vb2yYUeldS0WrAkGP2NBWhQFwO1Z7iFCiQPUDD5K+ea5Bw1WrYxso7gCFEQGWgYybgz5EwiGJFHD7+DGLupahp9Q1xEuxwO4AoPPpHCD9+wP/P/Ehu+C9u7/LC6rnAadvDuwOfgjMm0UZbhb5TLnEF8jzk2k7d3Nx0X24ncTi3C+HTAWS3MQONjXe32WD1ErKzHLv1KYTWU+vV4lqlfpZQKeFbNXoTJ4GgZRedOBBuhMiei1qD3E0yesLZ420nDPv2AEfzVsGVBOVBuqNZ0yFpmpbfSpe8tZTJ2+56aOyEvlvvGy91g27Z5An5z/g4d4k7Ti3aeFpab6quydj0wngFExMjEVvkGwNUCWw39LfSPxYVmmV9qQ83yagq5GUpIbW/G2cJzCpHwgCW9EFg3d6O7CPr0iQbdsdcXHp46VbUo8vrH7una+3d6RIBJUYCFFmbgHoaMbmnX5/SesDN3uN8bYSVFCxAL1nHHTfeibOdHLFhT7U/mzvU4pptC66yCDhu89GTfrte63Ez2gJpgigfOVnwo=
+install:
+- "/bin/true"
+script:
+- "echo RELEASE_STAMP=$RELEASE_STAMP"
+- "cp -f ./.mvn/ci/settings.xml $HOME/.m2/settings.xml"
+- "cp -f ./.mvn/ci/toolchains.xml $HOME/.m2/toolchains.xml"
+- "./.mvn/verify.sh || exit 1"
+- "./.mvn/release-bintray.sh || exit 1"
+- "./demo/.mvn/release-bintray.sh || exit 1"
+- "./.mvn/wipe-repo.sh || exit 1"

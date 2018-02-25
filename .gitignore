@@ -1,0 +1,14 @@
+
+# Eclipse
+bin/
+.project
+.classpath
+.settings/
+
+# Maven
+target/
+test-repo/
+test-tool/
+
+# Scala IDE
+.cache-*

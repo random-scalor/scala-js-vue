@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.carrotgarden.sjs</groupId>
+        <artifactId>scala-js-vue-demo</artifactId>
+        <version>0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.carrotgarden.sjs</groupId>
+    <artifactId>scala-js-vue-demo-server</artifactId>
+    <version>${revision}</version>
+
+    <url>https://github.com/random-scalor/scala-js-vue</url>
+    <scm>
+        <url>https://github.com/random-scalor/scala-js-vue</url>
+    </scm>
+
+    <dependencies>
+
+        <!-- Scala -->
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe.scala-logging</groupId>
+            <artifactId>scala-logging_${version.scala.epoch}</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-http_${version.scala.epoch}</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-http-jackson_${version.scala.epoch}</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.typesafe</groupId>
+            <artifactId>config</artifactId>
+        </dependency>
+
+        <!-- Scala/JS -->
+
+        <dependency>
+            <groupId>com.github.benhutchison</groupId>
+            <artifactId>prickle_${version.scala.epoch}</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>autowire_${version.scala.epoch}</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>scalatags_${version.scala.epoch}</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.japgolly.scalacss</groupId>
+            <artifactId>core_${version.scala.epoch}</artifactId>
+        </dependency>
+
+        <!-- Webjar/Native -->
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>jquery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>bootstrap</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>vue</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>vue-router</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>vuex</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>bootstrap-vue</artifactId>
+        </dependency>
+
+        <!-- Application components. -->
+
+        <dependency>
+            <groupId>com.carrotgarden.sjs</groupId>
+            <artifactId>scala-js-vue-demo-base</artifactId>
+            <version>${revision}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency><!-- Provide runtime.js -->
+            <groupId>com.carrotgarden.sjs</groupId>
+            <artifactId>scala-js-vue-demo-client</artifactId>
+            <version>${revision}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency><!-- Depend for Eclipse class path. -->
+            <groupId>com.carrotgarden.sjs</groupId>
+            <artifactId>scala-js-vue_${version.scala.epoch}</artifactId>
+            <version>${revision}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.carrotgarden.maven</groupId>
+                <artifactId>scalor-maven-plugin_2.12</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>eclipse-restart</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

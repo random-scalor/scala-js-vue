@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.carrotgarden.a</groupId>
+        <artifactId>scala-js-a</artifactId>
+        <version>0-SNAPSHOT</version>
+        <relativePath>.mvn/pom.vue.xml</relativePath>
+    </parent>
+
+    <groupId>com.carrotgarden.sjs</groupId>
+    <artifactId>scala-js-vue</artifactId>
+    <version>0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <url>https://github.com/random-scalor/scala-js-vue</url>
+    <scm>
+        <url>https://github.com/random-scalor/scala-js-vue</url>
+        <connection>scm:git:git@github.com:random-scalor/scala-js-vue.git</connection>
+        <developerConnection>scm:git:git@github.com:random-scalor/scala-js-vue.git</developerConnection>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+        </license>
+    </licenses>
+
+    <name>Scala.js Vue.js Facade</name>
+    <description>Scala.js Vue.js Facade Library</description>
+
+    <modules>
+        <module>cross/2.11</module>
+        <module>cross/2.12</module>
+        <!-- <module>cross/2.13</module> -->
+    </modules>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-js</groupId>
+            <artifactId>scalajs-library_${version.scala.epoch}</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>acyclic_${version.scala.epoch}</artifactId>
+            <version>0.1.7</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>scalatags_${version.sjs.library}</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>vue</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>vuex</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>vue-router</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>bootstrap-vue</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>com.carrotgarden.maven</groupId>
+                <artifactId>scalor-maven-plugin_2.12</artifactId>
+                <configuration>
+                    <envconfWebjarsScriptList>
+                        vue/dist/vue.js
+                        vuex/dist/vuex.js
+                        vue-router/dist/vuerouter.js
+                        bootstrap-vue/dist/bootstrap-vue.js
+                    </envconfWebjarsScriptList>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

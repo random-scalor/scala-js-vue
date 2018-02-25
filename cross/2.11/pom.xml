@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.carrotgarden.sjs</groupId>
+        <artifactId>scala-js-vue</artifactId>
+        <version>0-SNAPSHOT</version>
+        <relativePath>../..</relativePath>
+    </parent>
+
+    <groupId>com.carrotgarden.sjs</groupId>
+    <artifactId>scala-js-vue_2.11</artifactId>
+    <version>${revision}</version>
+
+    <name>Scala.js Vue.js Facade 2.11</name>
+
+    <url>https://github.com/random-scalor/scala-js-vue</url>
+    <scm>
+        <url>https://github.com/random-scalor/scala-js-vue</url>
+        <connection>scm:git:git@github.com:random-scalor/scala-js-vue.git</connection>
+        <developerConnection>scm:git:git@github.com:random-scalor/scala-js-vue.git</developerConnection>
+    </scm>
+
+    <properties>
+        <version.scala.epoch>2.11</version.scala.epoch>
+        <version.scala.release>2.11.12</version.scala.release>
+    </properties>
+
+</project>

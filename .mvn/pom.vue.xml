@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.carrotgarden.a</groupId>
+        <artifactId>carrot-a</artifactId>
+        <version>0-SNAPSHOT</version>
+        <relativePath>./pom.xml</relativePath>
+    </parent>
+
+    <groupId>com.carrotgarden.a</groupId>
+    <artifactId>scala-js-a</artifactId>
+    <version>0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <description>Scala.js Vue.js project family parent</description>
+
+    <properties>
+
+        <!-- Facade release series. -->
+        <release.epoch>1.0.1</release.epoch>
+
+        <!-- Development releases repository. -->
+        <bintray.subject>random-scalor</bintray.subject>
+        <bintray.repository>maven</bintray.repository>
+
+    </properties>
+
+    <!-- Static development release stamp. -->
+    <profiles>
+        <profile>
+            <id>release-local</id>
+            <activation>
+                <property>
+                    <name>!env.RELEASE_STAMP</name>
+                </property>
+            </activation>
+            <properties>
+                <release.stamp>local</release.stamp>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>com.carrotgarden.maven</groupId>
+                    <artifactId>scalor-maven-plugin_2.12</artifactId>
+                    <version>1.3.2.20180223214239</version>
+                    <configuration>
+                        <!-- <zincLogCompileOptions>true</zincLogCompileOptions> -->
+                        <!-- <zincLogBridgeClassPath>true</zincLogBridgeClassPath> -->
+                        <!-- <zincLogCompilerClassPath>true</zincLogCompilerClassPath> -->
+                        <!-- <zincLogProjectClassPath>true</zincLogProjectClassPath> -->
+                        <!-- <zincLogCompilerPluginList>true</zincLogCompilerPluginList> -->
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>eclipse-prescomp</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- <plugin> -->
+                <!-- <groupId>com.carrotgarden.maven</groupId> -->
+                <!-- <artifactId>flatten-maven-plugin</artifactId> -->
+                <!-- <configuration> -->
+                <!-- <includeScope>compile</includeScope> -->
+                <!-- </configuration> -->
+                <!-- </plugin> -->
+
+            </plugins>
+        </pluginManagement>
+
+    </build>
+
+</project>

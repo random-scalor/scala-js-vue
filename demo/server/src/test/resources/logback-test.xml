@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="false">
+
+	<property name="logging-folder" value="${user.dir}/target/logs" />
+
+	<property name="logging-pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %X{akkaSource} %X{akkaTimestamp} %n" />
+
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${logging-pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="filier" class="ch.qos.logback.core.FileAppender">
+		<append>false</append>
+		<file>${logging-folder}/app.log</file>
+		<encoder>
+			<pattern>${logging-pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<root level="debug">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="filier" />
+	</root>
+
+
+	<logger name="org.apache.http" level="info" />
+	<logger name="com.amazonaws" level="info" />
+
+</configuration>
